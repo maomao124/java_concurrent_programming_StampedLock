@@ -8,19 +8,18 @@ import java.util.concurrent.locks.StampedLock;
 /**
  * Project name(项目名称)：java并发编程_StampedLock
  * Package(包名): mao.t1
- * Class(类名): Test4
+ * Class(类名): Test5
  * Author(作者）: mao
  * Author QQ：1296193245
  * GitHub：https://github.com/maomao124/
  * Date(创建日期)： 2022/9/13
- * Time(创建时间)： 13:06
+ * Time(创建时间)： 13:15
  * Version(版本): 1.0
  * Description(描述)： 无
  */
 
-public class Test4
+public class Test5
 {
-
     /**
      * 锁
      */
@@ -29,7 +28,7 @@ public class Test4
     /**
      * 日志
      */
-    private static final Logger log = LoggerFactory.getLogger(Test4.class);
+    private static final Logger log = LoggerFactory.getLogger(Test5.class);
 
     public static void main(String[] args)
     {
@@ -38,11 +37,11 @@ public class Test4
 
     private static void m1()
     {
-        log.debug("尝试获取写锁");
-        long writeLock = stampedLock.writeLock();
+        log.debug("尝试获取读锁");
+        long readLock = stampedLock.readLock();
         try
         {
-            log.debug("获取写锁成功");
+            log.debug("读锁获取成功，" + readLock);
             try
             {
                 Thread.sleep(200);
@@ -55,18 +54,18 @@ public class Test4
         }
         finally
         {
-            log.debug("释放写锁");
-            stampedLock.unlockWrite(writeLock);
+            log.debug("释放读锁");
+            stampedLock.unlockRead(readLock);
         }
     }
 
     private static void m2()
     {
-        log.debug("尝试获取写锁");
-        long writeLock = stampedLock.writeLock();
+        log.debug("尝试获取读锁");
+        long readLock = stampedLock.readLock();
         try
         {
-            log.debug("获取写锁成功");
+            log.debug("读锁获取成功，" + readLock);
             try
             {
                 Thread.sleep(200);
@@ -79,18 +78,18 @@ public class Test4
         }
         finally
         {
-            log.debug("释放写锁");
-            stampedLock.unlockWrite(writeLock);
+            log.debug("释放读锁");
+            stampedLock.unlockRead(readLock);
         }
     }
 
     private static void m3()
     {
-        log.debug("尝试获取写锁");
-        long writeLock = stampedLock.writeLock();
+        log.debug("尝试获取读锁");
+        long readLock = stampedLock.readLock();
         try
         {
-            log.debug("获取写锁成功");
+            log.debug("读锁获取成功，" + readLock);
             try
             {
                 Thread.sleep(200);
@@ -102,8 +101,8 @@ public class Test4
         }
         finally
         {
-            log.debug("释放写锁");
-            stampedLock.unlockWrite(writeLock);
+            log.debug("释放读锁");
+            stampedLock.unlockRead(readLock);
         }
     }
 }
