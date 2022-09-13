@@ -30,6 +30,7 @@ public class Test6
      */
     private static final Logger log = LoggerFactory.getLogger(Test6.class);
 
+
     /**
      * main方法
      *
